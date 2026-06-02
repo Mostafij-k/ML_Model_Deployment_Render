@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Flower Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            font-size: 1.3em;
+            color: #2e7d32;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Iris Flower Classification</h2>
+
+        <form action="/predict" method="post">
+
+            <label>Sepal Length (cm):</label>
+            <input type="number" step="0.1" name="sepal_length" required>
+
+            <label>Sepal Width (cm):</label>
+            <input type="number" step="0.1" name="sepal_width" required>
+
+            <label>Petal Length (cm):</label>
+            <input type="number" step="0.1" name="petal_length" required>
+
+            <label>Petal Width (cm):</label>
+            <input type="number" step="0.1" name="petal_width" required>
+
+            <input type="submit" value="Predict Species">
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
